@@ -1,0 +1,25 @@
+name: miami-herald-news
+recipe: wordpress
+config:
+  php: '8.0' # Specify the PHP version you want to use
+  webroot: web
+  database: mariadb
+  xdebug: true
+  cache: true
+  services:
+    database:
+      portforward: 3306
+  # Optional: Configure custom URLs
+  via:
+    - miamiheraldnews.lndo.site
+
+tooling:
+  wp:
+    service: appserver
+    description: "Run WP-CLI commands"
+  composer:
+    service: appserver
+    description: "Run Composer commands"
+  npm:
+    service: appserver
+    description: "Run NPM commands"
